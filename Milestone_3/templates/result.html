@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h1>Prediction Result</h1>
+    <img src="{{ url_for('static', filename='uploads/images/' + image_path) }}" alt="Uploaded Image">
+    <h2>Prediction: {{ prediction }}</h2>
+    <h3>Confidence: {{ confidence }}</h3>
+
+    {% if disease_info %}
+    <div>
+        <h3>Disease Information</h3>
+        <p><strong>Description:</strong> {{ disease_info.description }}</p>
+        <p><strong>Cause:</strong> {{ disease_info.cause }}</p>
+        <p><strong>Symptoms:</strong></p>
+        <ul>
+            {% for symptom in disease_info.symptoms %}
+            <li>{{ symptom }}</li>
+            {% endfor %}
+        </ul>
+        <p><strong>Prevention:</strong></p>
+        <ul>
+            {% for prevention in disease_info.prevention %}
+            <li>{{ prevention }}</li>
+            {% endfor %}
+        </ul>
+        <p><strong>Treatment:</strong></p>
+        <ul>
+            {% for treatment in disease_info.treatment %}
+            <li>{{ treatment }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

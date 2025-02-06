@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Not Found</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            text-align: center;
+            padding: 50px;
+            color: #333;
+        }
+        h1 {
+            font-size: 3em;
+            color: #ff6b6b;
+        }
+        p {
+            font-size: 1.2em;
+            margin: 20px 0;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+            font-size: 1.2em;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>404</h1>
+    <p>Oops! The page you are looking for does not exist or the requested data is unavailable.</p>
+    <p><a href="{{ url_for('home') }}">Return to Home Page</a></p>
+</body>
+</html>

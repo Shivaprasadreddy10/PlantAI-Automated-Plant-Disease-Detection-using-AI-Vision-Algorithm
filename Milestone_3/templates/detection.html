@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Detection Section -->
+<section id="detection" class="detection-section py-5 text-center">
+    <div class="container">
+        <h2>Plant Disease Detection</h2>
+        <p class="lead">Upload an image of your plant to detect any diseases.</p>
+
+        <!-- Image Upload Form -->
+        <form action="{{ url_for('detection') }}" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="imageUpload" class="form-label">Choose an Image</label>
+                <input type="file" class="form-control" id="imageUpload" name="image" accept="image/*" required>
+            </div>
+            <div class="form-group mt-3">
+                <button type="submit" class="btn btn-success">Upload and Detect</button>
+            </div>
+        </form>
+
+        {% if image_url %}
+        <!-- Display Uploaded Image -->
+        <h3 class="mt-4">Uploaded Image:</h3>
+        <img src="{{ image_url }}" alt="Uploaded Image" class="img-fluid mt-3">
+        <p>Prediction: {{ prediction }}</p>
+        <div id="diseaseInfo" class="mt-4">
+           <h2>Disease Information</h2>
+		<p><strong>Description:</strong> {{ description }}</p>
+		<p><strong>Cause:</strong> {{ cause }}</p>
+		<p><strong>Symptoms:</strong></p>
+		<ul>
+    		{% for symptom in symptoms %}
+        	<li>{{ symptom }}</li>
+    		{% endfor %}
+		</ul>
+		<p><strong>Prevention:</strong></p>
+		<ul>
+  		  {% for item in prevention %}
+        	<li>{{ item }}</li>
+    		{% endfor %}
+		</ul>
+		<p><strong>Treatment:</strong></p>
+		<ul>
+    		{% for item in treatment %}
+        	<li>{{ item }}</li>
+    		{% endfor %}
+		</ul>
+        </div>
+        {% endif %}
+    </div>
+</section>
+
+{% endblock %}

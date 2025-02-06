@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="contact-section py-5">
+    <div class="container">
+        <h2>Contact Us</h2>
+        <p>If you have any questions, feel free to reach out to us!</p>
+
+        <h3>Frequently Asked Questions</h3>
+        <ul class="faq-list">
+            <li><strong>Q:</strong> How can I upload an image?</li>
+            <li><strong>A:</strong> Simply visit the Detection page and click the "Upload" button to choose your image.</li>
+            <li><strong>Q:</strong> What type of images can I upload?</li>
+            <li><strong>A:</strong> We accept images in JPG, JPEG, and PNG formats.</li>
+        </ul>
+
+        <h3>Send Us a Message</h3>
+        <form action="#" method="post">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <textarea name="message" placeholder="Your Message" required></textarea>
+            <button type="submit" class="btn btn-success">Send Message</button>
+        </form>
+
+        <button class="btn btn-primary mt-4" id="chatButton">Chat with Us</button>
+
+        <div id="chatBox" class="chat-box">
+            <div class="chat-header">
+                <h5>Customer Support</h5>
+                <button id="closeChat" class="btn btn-danger btn-sm">Close</button>
+            </div>
+            <div class="chat-body">
+                <p>Hello! How can we assist you today?</p>
+            </div>
+            <div class="chat-footer">
+                <input type="text" placeholder="Type your message...">
+                <button class="btn btn-primary">Send</button>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

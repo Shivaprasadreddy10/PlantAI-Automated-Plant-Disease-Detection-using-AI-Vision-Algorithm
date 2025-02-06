@@ -1,0 +1,101 @@
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(to right, #4caf50, #8bc34a);
+    color: white;
+    padding: 100px 0;
+    animation: slideIn 2s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Button Animation */
+#explore-btn {
+    opacity: 0;
+    animation: fadeInUp 1s ease-in-out 0.5s forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Animated Feature Cards */
+.feature-card {
+    opacity: 0;
+    animation: fadeInUp 1s ease-in-out forwards;
+    transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: scale(1.05);
+}
+
+@keyframes fadeInUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Animation for Slide-In */
+@keyframes slideInUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.navbar-nav .nav-item {
+    animation: slideInNav 0.5s ease-out forwards;
+    opacity: 0;
+}
+
+@keyframes slideInNav {
+    from {
+        transform: translateX(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.navbar-nav .nav-item:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.navbar-nav .nav-item:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.navbar-nav .nav-item:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.navbar-nav .nav-item:nth-child(4) {
+    animation-delay: 0.4s;
+}

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plant Disease Prediction</title>
+    <style>
+        body {
+            background-image: url('static/22.jpg'); /* Ensure the image is in a 'static' folder */
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            color: white; /* Change text color as needed */
+        }
+        h1 {
+            color: white; /* Gold color for the title */
+            text-align: center; /* Center the title */
+        }
+        form {
+            text-align: center; /* Center the form */
+        }
+        input[type="file"] {
+            padding: 10px; /* Increase the padding for larger size */
+            font-size: 16px; /* Increase font size */
+            border: 2px solid green; /* Change border color */
+            border-radius: 5px; /* Add rounded corners */
+            background-color: white; /* Background color of the file input */
+            color: green; /* Text color in file input */
+        }
+        button {
+            padding: 10px 20px; /* Add padding for larger button size */
+            font-size: 16px; /* Increase font size */
+            border: none; /* Remove border */
+            border-radius: 5px; /* Rounded corners */
+            background-color: green; /* Button background color */
+            color: white; /* Text color */
+            cursor: pointer; /* Pointer cursor on hover */
+            transition: background-color 0.3s; /* Smooth transition for hover effect */
+        }
+        button:hover {
+            background-color: darkgreen; /* Darker green on hover */
+        }
+        #preview {
+            margin-top: 20px; /* Space above the preview */
+            display: none; /* Hide preview by default */
+        }
+    </style>
+    <script>
+        function validateFile() {
+            const fileInput = document.getElementById('file-input');
+            const filePath = fileInput.value;
+            const allowedExtensions = /(\.png|\.jpg|\.jpeg|\.gif)$/i;
+
+            if (!allowedExtensions.exec(filePath)) {
+                alert('Invalid file format! Please upload an image file (PNG, JPG, JPEG, or GIF).');
+                fileInput.value = ''; // Clear the input
+                return false;
+            } else {
+                // Show preview if valid
+                const preview = document.getElementById('preview');
+                const img = document.getElementById('image-preview');
+                img.src = URL.createObjectURL(fileInput.files[0]); // Create a preview of the uploaded image
+                img.onload = () => {
+                    URL.revokeObjectURL(img.src); // Free memory after image loads
+                };
+                preview.style.display = 'block'; // Show preview div
+                return true;
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>PlantAI: Automated Plant Disease Detection using AI Vision</h1>
+    <form action="/predict" method="POST" enctype="multipart/form-data">
+        <input type="file" id="file-input" name="file" accept=".png, .jpg, .jpeg, .gif" onchange="validateFile()">
+        <br><br>
+        <button type="submit">Predict</button>
+    </form>
+    
+    <div id="preview">
+        <h2>Successfully uploaded image:</h2>
+        <img id="image-preview" src="" alt="Image preview" style="max-width: 300px; border: 2px solid white; border-radius: 5px;">
+    </div>
+</body>
+</html>
